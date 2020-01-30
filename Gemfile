@@ -7,7 +7,6 @@ end
 
 
 gem 'rails', '~> 5.1.7'
-gem 'sqlite3'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -17,8 +16,15 @@ gem 'jbuilder', '~> 2.5'
 gem 'faker'
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
+gem 'redis'
+
+group :production do
+  gem 'pg'
+end
+
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'pry'
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
