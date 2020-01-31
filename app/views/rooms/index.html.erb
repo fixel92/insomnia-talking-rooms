@@ -1,9 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Rooms</h1>
-<ul class="mt-4 list-unstyled">
-  <%= render @rooms %>
-</ul>
-<div class="mt-2">
-  <%= render 'rooms/form', room: @room %>
+<div class="row">
+  <div class="col-6">
+    <ul class="mt-4 list-unstyled">
+      <%= render @rooms %>
+    </ul>
+    <div class="mt-2">
+      <%= render 'rooms/form', room: @room %>
+    </div>
+  </div>
+  <div class="col-6">
+    <h2>Users Online</h2>
+    <div id="users-online">
+      <%= render partial: 'users/card', collection: @users %>
+    </div>
+  </div>
 </div>
