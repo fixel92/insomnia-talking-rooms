@@ -1,24 +1,32 @@
-# README
+# Анонимный онлайн чат Insomnia Chat
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Анонимный онлайн чат без регистрации и смс
 
-Things you may want to cover:
+#### Установка
+```
+git clone git@github.com:fixel92/insomnia-talking-rooms.git
+cd insomnia-talking-rooms/
+bundle install
+```
 
-* Ruby version
+#### Настройка
+Установите на сервере Redis
 
-* System dependencies
+Если вы деплоите на Heroku, выплните команду
+```
+heroku addons:add redistogo
+heroku config
+```
+Скопируйте содержимое и настройте адаптер в файле `config/cable.yml`
 
-* Configuration
+Обновите строки в файле `config/environments/production.rb`
+```
+config.action_cable.url = 'wss://YOUR_DOMAIN/cable'
+config.action_cable.allowed_request_origins = [
+  'http://YOUR_DOMAIN/cable',
+  'https://YOUR_DOMAIN/cable'
+]
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### Зависимости
+* Ruby версии не ниже 2.6.0
